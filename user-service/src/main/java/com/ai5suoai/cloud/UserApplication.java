@@ -17,6 +17,5 @@ public class UserApplication {
         new SpringApplicationBuilder(UserApplication.class)
                 .web(true)
                 .run(args);
-//        SpringApplication.run(UserApplication.class, args);
     }
 }
