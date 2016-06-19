@@ -1,0 +1,13 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-2" author="chenzhenjia">
+        <script>
+            var admin = db.authority.find({"authority":"admin"});
+            db.user.insert(
+            {
+            "username" : "admin",
+            "password" : "admin",
+            "authorities": [ {"$ref":"authority","$id":admin[0]._id} ]
+            });
+        </script>
+    </changeSet>
+</mongoChangeLog>

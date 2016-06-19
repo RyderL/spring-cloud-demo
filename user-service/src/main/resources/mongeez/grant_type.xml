@@ -1,0 +1,11 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-4" author="chenzhenjia">
+        <script>
+            db.grant_type.insert({"grant" : "authorization_code" , "name" : "授权 code(需要用户登录授权)"});
+            db.grant_type.insert({"grant" : "client_credentials", "name" : "使用客户端凭据,不需要用户登录"});
+            db.grant_type.insert({"grant" : "implicit" , "name" : "未知"});
+            db.grant_type.insert({"grant" : "password" , "name" : "直接提交用户名密码登录"});
+            db.grant_type.insert({"grant" : "refresh_token" , "name" : "刷新token"});
+        </script>
+    </changeSet>
+</mongoChangeLog>

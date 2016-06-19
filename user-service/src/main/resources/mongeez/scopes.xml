@@ -1,0 +1,10 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-3" author="chenzhenjia">
+        <script>
+            db.scope.insert({"scope" : "get" , "name" : "查询"});
+            db.scope.insert({"scope" : "post", "name" : "添加"});
+            db.scope.insert({"scope" : "put" , "name" : "修改"});
+            db.scope.insert({"scope" : "delete" , "name" : "删除"});
+        </script>
+    </changeSet>
+</mongoChangeLog>

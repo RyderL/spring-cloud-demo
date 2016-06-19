@@ -1,0 +1,28 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-6" author="chenzhenjia">
+        <script>
+            var grant_types =
+            db.grant_type.find({$or:[{"grant":"authorization_code"},{"grant":"client_credentials"}]});
+            var grantRef = new Array();
+            grant_types.toArray().forEach(function(e){
+            grantRef.push({"$ref":"grant_type","$id":e._id});
+            });
+
+            var scopeRef = new Array();
+            db.scope.find().toArray().forEach(function(e){
+            scopeRef.push({"$ref":"scope","$id":e._id});
+            });
+
+            var admin = db.authority.find({"authority":"admin"});
+
+            db.client.insert(
+            {
+            "_id":"baseid",
+            "secret" : "basesecret",
+            "scopes" : scopeRef,
+            "grantTypes" : grantRef,
+            "authorities": [ {"$ref":"authority","$id":admin[0]._id} ]
+            });
+        </script>
+    </changeSet>
+</mongoChangeLog>

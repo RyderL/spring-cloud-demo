@@ -1,0 +1,11 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-5" author="chenzhenjia">
+        <script>
+            var admin = db.authority.find({"authority":"admin"});
+            db.security_source.insert(
+            {"uri" : "/**",
+            "authorities": [ {"$ref":"authority","$id":admin[0]._id} ]
+            });
+        </script>
+    </changeSet>
+</mongoChangeLog>
