@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 
 /**
  * redis 缓存的配置
@@ -57,12 +57,13 @@ public class RedisConfiguration extends CachingConfigurerSupport {
             RedisConnectionFactory factory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<Object, Object>();
         template.setConnectionFactory(factory);
-        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
+//        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
         ObjectMapper om = new ObjectMapper();
         om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        jackson2JsonRedisSerializer.setObjectMapper(om);
-        template.setValueSerializer(jackson2JsonRedisSerializer);
+//        jackson2JsonRedisSerializer.setObjectMapper(om);
+//        template.setValueSerializer(new StringRedisSerializer(Charset.forName("UTF-8")));
+        template.setDefaultSerializer(new JdkSerializationRedisSerializer());
         template.afterPropertiesSet();
         return template;
     }
