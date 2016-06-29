@@ -1,10 +1,36 @@
 <mongoChangeLog>
     <changeSet changeId="ChangeSet-5" author="chenzhenjia">
         <script>
-            var admin = db.authority.find({"authority":"admin"});
+            var admin = db.role.find({"key":"ADMIN"});
+            var authorities = db.authority.find();
+            var adminAuths = new Array();
+            authorities.toArray().forEach(function(e){
+            adminAuths.push({"$ref":"authority","$id":e._id});
+            });
             db.security_source.insert(
-            {"uri" : "/**",
-            "authorities": [ {"$ref":"authority","$id":admin[0]._id} ]
+            {"uri" : "/v1",
+            "role": {"$ref":"role","$id":admin[0]._id},
+            "authorities":adminAuths
+            });
+
+            var user = db.role.find({"key":"USER"});
+            var getAndPost = db.authority.find({$or:[{"key":"get"},{"key":"post"}]});
+            var userAuths = new Array();
+            getAndPost.toArray().forEach(function(e){
+            userAuths.push({"$ref":"authority","$id":e._id});
+            });
+            db.security_source.insert(
+            {"uri" : "/v1",
+            "role": {"$ref":"role","$id":user[0]._id},
+            "authorities":userAuths
+            });
+            var anonymous = db.role.find({"key":"ANONYMOUS"});
+
+            var get = db.authority.find({"key":"get"});
+            db.security_source.insert(
+            {"uri" : "/v1/authorities",
+            "role": {"$ref":"role","$id":anonymous[0]._id},
+            "authorities":[{"$ref":"authority","$id":get[0]._id}]
             });
         </script>
     </changeSet>

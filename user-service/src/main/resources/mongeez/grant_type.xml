@@ -1,5 +1,5 @@
 <mongoChangeLog>
-    <changeSet changeId="ChangeSet-4" author="chenzhenjia">
+    <changeSet changeId="ChangeSet-2" author="chenzhenjia">
         <script>
             db.grant_type.insert({"grant" : "authorization_code" , "name" : "授权 code(需要用户登录授权)"});
             db.grant_type.insert({"grant" : "client_credentials", "name" : "使用客户端凭据,不需要用户登录"});

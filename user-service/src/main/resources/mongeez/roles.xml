@@ -1,0 +1,10 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-4" author="chenzhenjia">
+        <script>
+            db.role.insert({"key" : "ADMIN" , "value" : "管理员"});
+            db.role.insert({"key" : "SUPER", "value" : " 超级管理员"});
+            db.role.insert({"key" : "USER" , "value" : " 用户"});
+            db.role.insert({"key" : "ANONYMOUS" , "value" : "匿名"});
+        </script>
+    </changeSet>
+</mongoChangeLog>

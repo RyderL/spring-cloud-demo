@@ -1,10 +1,10 @@
 <mongoChangeLog>
     <changeSet changeId="ChangeSet-1" author="chenzhenjia">
         <script>
-            db.authority.insert({"authority" : "admin" , "name" : "管理员"});
-            db.authority.insert({"authority" : "super", "name" : " 超级管理员"});
-            db.authority.insert({"authority" : "user" , "name" : " 用户"});
-            db.authority.insert({"authority" : "none" , "name" : "游客"});
+            db.authority.insert({"key" : "get" , "value" : "查询"});
+            db.authority.insert({"key" : "put", "value" : " 修改"});
+            db.authority.insert({"key" : "post" , "value" : " 添加"});
+            db.authority.insert({"key" : "delete" , "value" : "删除"});
         </script>
     </changeSet>
 </mongoChangeLog>

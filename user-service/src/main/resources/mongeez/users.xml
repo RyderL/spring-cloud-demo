@@ -1,13 +1,22 @@
 <mongoChangeLog>
-    <changeSet changeId="ChangeSet-2" author="chenzhenjia">
+    <changeSet changeId="ChangeSet-7" author="chenzhenjia">
         <script>
-            var admin = db.authority.find({"authority":"admin"});
+            var admin = db.role.find({"key":"ADMIN"});
             db.user.insert(
             {
             "username" : "admin",
             "password" : "admin",
-            "authorities": [ {"$ref":"authority","$id":admin[0]._id} ]
+            "role": {"$ref":"role","$id":admin[0]._id}
             });
+
+            var user = db.role.find({"key":"USER"});
+            db.user.insert(
+            {
+            "username" : "user",
+            "password" : "user",
+            "role": {"$ref":"role","$id":user[0]._id}
+            });
+
         </script>
     </changeSet>
 </mongoChangeLog>

@@ -13,7 +13,7 @@
             scopeRef.push({"$ref":"scope","$id":e._id});
             });
 
-            var admin = db.authority.find({"authority":"admin"});
+            var admin = db.role.find({"key":"ADMIN"});
 
             db.client.insert(
             {
@@ -21,7 +21,7 @@
             "secret" : "basesecret",
             "scopes" : scopeRef,
             "grantTypes" : grantRef,
-            "authorities": [ {"$ref":"authority","$id":admin[0]._id} ]
+            "authorities": [ {"$ref":"role","$id":admin[0]._id} ]
             });
         </script>
     </changeSet>
