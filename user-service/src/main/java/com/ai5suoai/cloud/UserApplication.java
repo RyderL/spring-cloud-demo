@@ -9,7 +9,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @since 16/6/15
  */
 @SpringBootApplication
-//@EnableJpaRepositories
 @EnableDiscoveryClient
 public class UserApplication {
 
