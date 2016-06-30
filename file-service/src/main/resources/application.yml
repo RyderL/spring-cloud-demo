@@ -1,0 +1,17 @@
+server:
+  port: 8893
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+qiniu:
+  access-key: D-XZ7B3mFhyIO7h6CMc80SH9BkRamN1F6pNJm8K2
+  secret-key: GFws8gRmsRR4Y9prncdx3uCJFJSd8nsCZNu9fOTW
+  default-bucket:
+    name: chenzhenjia
+    url: 7fve8v.com1.z0.glb.clouddn.com
+
