@@ -1,4 +1,4 @@
-package com.ai5suoai.cloud.common;
+package com.ai5suoai.commons;
 
 /**
  * @author chenzhenjia
@@ -80,7 +80,9 @@ public enum HttpCodes {
      * 410响应的目的主要是帮助网站管理员维护网站，通知用户该资源已经不再可用，并且服务器拥有者希望所有指向这个资源的远端连接也被删除。这类事件在限时、增值服务中很普遍。同样，410响应也被用于通知客户端在当前服务器站点上，原本属于某个个人的资源已经不再可用。当然，是否需要把所有永久不可用的资源标记为'410
      * Gone'，以及是否需要保持此标记多长时间，完全取决于服务器拥有者。
      */
-    GONE(410, "Gone"),;
+    GONE(410, "Gone"),
+
+    SERVER_ERROR(500, "Internal Server Error");
 
     private final int value;
     private final String reason;
