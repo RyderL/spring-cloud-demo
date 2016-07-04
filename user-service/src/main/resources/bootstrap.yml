@@ -5,3 +5,16 @@ spring:
     config:
       uri: ${CONFIG_SERVER_URL:http://localhost:8888}
       enabled: true
+
+eureka:
+  instance:
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8889}/eureka/
+endpoints:
+  restart:
+    enabled: true
