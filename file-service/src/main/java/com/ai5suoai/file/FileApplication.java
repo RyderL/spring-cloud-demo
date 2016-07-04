@@ -10,7 +10,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @since 16/6/29
  */
 @SpringBootApplication
-//@EnableOAuth2Sso
 @EnableEurekaClient
 public class FileApplication {
 
