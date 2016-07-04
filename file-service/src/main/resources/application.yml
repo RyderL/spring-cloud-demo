@@ -15,3 +15,12 @@ qiniu:
     name: chenzhenjia
     url: 7fve8v.com1.z0.glb.clouddn.com
 
+logging:
+  level: debug
+multipart:
+  max-file-size: 1024MB
+  max-request-size: 4096MB
+
+#spring:
+#  aop:
+#    proxy-target-class: true
