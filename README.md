@@ -21,3 +21,11 @@
 * user-service
 
     > 用户的微服务,这是一个 eureka-client ,这个 maven 的 pom 直接继承 cloud-eureka-client-parent
+
+* oauth2-service
+
+    > 授权的微服务,包涵了 zuul 的代理,对外提供oauth2-service 的端口,所有的api 微服务都要走 oauth2的代理。
+
+* file-service
+
+    > 文件的微服务,有文件相关的功能。
